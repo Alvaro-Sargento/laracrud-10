@@ -22,4 +22,19 @@ class SupportController extends Controller
     public function create(){
         return view('admin/supports/create');
     }
+
+    // metodo para cadastrar 
+    public function store(REQUEST $request, Support $support){
+
+        $data = $request->all();
+        $data['status'] = 'a';
+
+        $support = $support->create($data);
+
+        // imprime os dados no console
+        // dd($support);
+
+        return redirect()->route('supports.index');
+    }
+
 }

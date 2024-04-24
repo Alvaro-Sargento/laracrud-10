@@ -9,7 +9,12 @@
 <body>
     <h1>Nova Duvida</h1>
 
-    <form action="" method="POST">
+    <form action="{{ route('supports.store')}}" method="POST">
+
+        {{-- este e um token de segurranra para confirmar a requisicao e evitar captacao de dados --}}
+        {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> --}}
+        @csrf
+        
         <input type="text" placeholder="assunto" name="subject">
         <br> <br>
         <textarea name="body" id="" placeholder="descreva aqui..." cols="30" rows="10"></textarea><br> <br>
